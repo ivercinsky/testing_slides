@@ -7,7 +7,7 @@
 		<title>reveal.js</title>
 
 		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css">
+		<link rel="stylesheet" href="css/theme/blood.css">
 
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
@@ -30,20 +30,23 @@
 					<p>
 						<small>El presente slideshow pretende ser una introducción a las herramientas que vamos a usar para testear CaseCenter</small>
 					</p>
+					<p>
+						<strong>Palabra Clave : Automatizacion</strong>
+					</p>
 				</section>
 				<section>
 					<h4>Que vamos a ver?</h4>
 					<ul>
 						<li><a href="#/2">Maven</a></li>
-						<li><a href="#/2">Junit</a></li>
-						<li><a href="#/2">Selenium</a></li>
-						<li><a href="#/2">Jenkins</a></li>
+						<li><a href="#/3">Junit</a></li>
+						<li><a href="#/4">Selenium</a></li>
+						<li><a href="#/5">Jenkins</a></li>
 					</ul>
 				</section>
 				<section>
 					<section>
 
-						<h4><a href="https://maven.apache.org/">Maven</a></h4>
+						<h4><a target="_blank" href="https://maven.apache.org/">Maven</a></h4>
 						<p>Maven es un organizador de software</p>
 					</section>
 					<section>
@@ -69,21 +72,103 @@
 				</section>
 				<section>
 					<section>
-						<h4><a href="#/2">Junit</a></h4>
-						<p>Una libreria para escribir Tests</p>
+						<h4><a target="_blank" href="http://junit.org/junit4/">Junit</a></h4>
+						<p>Una librería para escribir Tests</p>
+					</section>
+					<section>
+
 					</section>
 				</section>
 				<section>
 					<section>
-						<h4><a href="#/2">Selenium</a></h4>
+						<h4><a target="_blank" href="http://www.seleniumhq.org/">Selenium</a></h4>
 						<p>La magia que vamos a usar</p>
+						<p><small>Selenium <a href="#">automatiza</a> el manejo del browser</small></p>
+					
 					</section>
+					<section>
+						<h6>Que quiere decir <a href="#">Automatizar</a> el manejo del browser?</h6>
+						<p><small>Quiere decir que podemos hacer scripts que hagan lo que nosotros hariamos manualmente. </p></small>
+						<p><small>Es decir, podemos armar scripts que naveguen por la solucion, escriban y lean texto</small></p>
+					</section>
+					<section>
+						<h4>Como lo usamos?</h4>
+						<p><small>Veamos un ejemplo</small></p>
+					</section>
+					<section>
+						<pre>
+							<code class="java" data-trim contenteditable style="font-size: 18px;">
+								WebDriver driver = new ChromeDriver();
+								driver.get("https://www.gdslink.com");
+								WebDriverWait wait = new WebDriverWait(driver, 10, 1000);
+								wait.until(ExpectedConditions.textToBePresentInElementLocated(By.id("content"), 
+									"Modular. Seamless. Advanced."));
+							</code>
+						</pre>
+					</section>
+					<section>
+						<p><small>Veamos que hace ese codigo</small></p>
+						<pre>
+							<code class="java" data-trim contenteditable style="font-size: 18px;">
+								WebDriver driver = new ChromeDriver();
+							</code>
+						</pre>
+						<p class="fragment"><small>Crea un driver que va a correr sobre Google Chrome. Podriamos usar Firefow, IE, etc</small></p>
+					</section>
+					<section>
+						<pre>
+							<code class="java" data-trim contenteditable style="font-size: 18px;">
+								driver.get("https://www.gdslink.com");
+							</code>
+						</pre>
+						<p class="fragment"><small>Navega a la URL pasada por por parametro</small></p>
+					</section>
+					<section>
+						<pre>
+							<code class="java" data-trim contenteditable style="font-size: 18px;">
+								WebDriverWait wait = new WebDriverWait(driver, 10, 1000);
+							</code>
+						</pre>
+						<p class="fragment"><small>Epa! No es tan obvio e!</small></p>
+						<p class="fragment"><small>Crea un objecto que va a intentar 10 veces algo, a intervalos de 1000 milisegundos</small></p>
+					</section>
+					<section>
+						<p><small>Finalmente</small></p>
+						<pre>
+							<code class="java" data-trim contenteditable style="font-size: 18px;">
+								wait.until(ExpectedConditions.textToBePresentInElementLocated(By.id("content"), 
+									"Modular. Seamless. Advanced."));
+							</code>
+						</pre>
+						
+						<p class="fragment"><small>Nuestro objecto wait va a intentar encontrar el texto <strong class="fragment">Modular. Seamless. Advanced.</strong>
+						<span class="fragment">adentro del Elemento del DOM con id </span><strong class="fragment">content</strong></small></p>
+						<p class="fragment"><small>O sea, va a intentar por 10 segundos encontrar el texto <strong>Modular. Seamless. Advanced.</strong></small></p>
+					</section>
+					<section>
+						<p><small>En resumen</small></p>
+						<pre>
+							<code class="java" data-trim contenteditable style="font-size: 18px;">
+								WebDriver driver = new ChromeDriver();
+								driver.get("https://www.gdslink.com");
+								WebDriverWait wait = new WebDriverWait(driver, 10, 1000);
+								wait.until(ExpectedConditions.textToBePresentInElementLocated(By.id("content"), 
+									"Modular. Seamless. Advanced."));
+							</code>
+						</pre>
+						<ul>
+							<li>Creamos un driver de chrome</li>
+							<li>Navegamos a la pagina de GDS Link</li>
+							<li>Nos quedamos esperando HASTA 10 segundos por el texto Modular. Seam.....</li>
+						</ul>
+					</section>
+				
 				</section>
 				<section>
 					<section>
-						<h4><a href="#/2">Jenkins</a></h4>
-						<p>Es un servidor de Automatizacion</p>
-						<p>Lo vamos a usar para que corra los tests de cada proyecto cada vez que subamos algo al Repositorio</p>
+						<h4><a target="_blank" href="https://jenkins.io/">Jenkins</a></h4>
+						<p><small>Jenkins un servidor de <a href="#">Automatizacion</a></small></p>
+						<p><small>Lo vamos a usar para que corra los tests de cada proyecto cada vez que subamos algo al Repositorio</small></p>
 					</section>
 					<section>
 						<h4>Lo pueden ver en accion</h4>

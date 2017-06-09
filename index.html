@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h1>Testing</h1>
+					<h4>Eso que no hacemos</h4>
+					<p>
+						<small>El presente slideshow pretende ser una introducción a las herramientas que vamos a usar para testear CaseCenter</small>
+					</p>
+				</section>
+				<section>
+					<h4>Que vamos ver?</h4>
+					<ul>
+						<li>Maven</li>
+						<li>Junit</li>
+						<li>Selenium</li>
+						<li>Jenkins</li>
+					</ul>
+				</section>
+				<section>
+					<section>
+
+						<h4><a href="https://maven.apache.org/">Maven</a></h4>
+						<p>Maven es un organizador de organizador de software</p>
+					</section>
+					<section>
+						<h3>Para que vamos a usar maven?</h3>
+						<p>Lo vamos a usar para gestionar las dependencias del proyecto</p>
+					</section>
+					<section>
+						<h3>Y, para algo mas?</h3>
+						<h1>SI</h1>
+						<p>Jenkins usa maven para correr los test</p>
+					</section>
+				</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>

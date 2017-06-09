@@ -32,28 +32,68 @@
 					</p>
 				</section>
 				<section>
-					<h4>Que vamos ver?</h4>
+					<h4>Que vamos a ver?</h4>
 					<ul>
-						<li>Maven</li>
-						<li>Junit</li>
-						<li>Selenium</li>
-						<li>Jenkins</li>
+						<li><a href="#/2">Maven</a></li>
+						<li><a href="#/2">Junit</a></li>
+						<li><a href="#/2">Selenium</a></li>
+						<li><a href="#/2">Jenkins</a></li>
 					</ul>
 				</section>
 				<section>
 					<section>
 
 						<h4><a href="https://maven.apache.org/">Maven</a></h4>
-						<p>Maven es un organizador de organizador de software</p>
+						<p>Maven es un organizador de software</p>
 					</section>
 					<section>
 						<h3>Para que vamos a usar maven?</h3>
-						<p>Lo vamos a usar para gestionar las dependencias del proyecto</p>
+						<p>Lo vamos a usar para gestionar las dependencias del proyecto.</p>
+						<p>O sea, para descargar y disponibilizar librerias externar que vamos a usar. Por ejemplo <a href="#/1">Junit</a>.</p>						
 					</section>
 					<section>
 						<h3>Y, para algo mas?</h3>
 						<h1>SI</h1>
-						<p>Jenkins usa maven para correr los test</p>
+						<p>Veremos mas adelante que <a href="#/1">Jenkins</a> usa maven para compilar y correr los tests del proyecto.</p>
+					</section>
+					<section>
+						<h3>Bueno, y como se usa?</h3>
+						<pre>
+							<code class="bash" data-trim contenteditable style="font-size: 18px;">
+								mvn test # Corre todos los tests del proyecto
+								mvn update # Instala dependencias
+								mvn clean # Limpia el proyecto
+							</code>
+						</pre>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h4><a href="#/2">Junit</a></h4>
+						<p>Una libreria para escribir Tests</p>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h4><a href="#/2">Selenium</a></h4>
+						<p>La magia que vamos a usar</p>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h4><a href="#/2">Jenkins</a></h4>
+						<p>Es un servidor de Automatizacion</p>
+						<p>Lo vamos a usar para que corra los tests de cada proyecto cada vez que subamos algo al Repositorio</p>
+					</section>
+					<section>
+						<h4>Lo pueden ver en accion</h4>
+						<p>
+							<a target="_blank" href="http://192.168.2.214:8080/login?from=%2F">Aca!</a>
+						</p>
+						<ul>
+							<li>User : demo</li>
+							<li>Password : Demo123</li>
+						</ul>
 					</section>
 				</section>
 			</div>
@@ -63,15 +103,23 @@
 		<script src="js/reveal.js"></script>
 
 		<script>
-			// More info about config & dependencies:
-			// - https://github.com/hakimel/reveal.js#configuration
-			// - https://github.com/hakimel/reveal.js#dependencies
+			// More info https://github.com/hakimel/reveal.js#configuration
 			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
 				dependencies: [
-					{ src: 'plugin/markdown/marked.js' },
-					{ src: 'plugin/markdown/markdown.js' },
-					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
 				]
 			});
 		</script>
